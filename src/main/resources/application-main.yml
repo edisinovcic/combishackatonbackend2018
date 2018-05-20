@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432;databaseName=CodeApp
+        username: root
+        password: root
+    jpa:
+        properties:
+        hibernate:
+        default_schema: codeapp
+flyway:
+    locations: db/migrations
+    schemas: CodeApp
+    baseline-on-migrate: true

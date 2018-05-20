@@ -1,0 +1,67 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+        jjwtVersion = '0.9.0'
+        beanutilsVersion = '1.9.3'
+        jtdsVersion = '1.3.1'
+        swaggerVersion = '2.8.0'
+        springfoxVersion = '2.8.0'
+        fileuploadVersion = '1.3.1'
+        javafakerVersion = '0.13'
+        h2Version = '1.3.148'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'idea'
+
+
+group 'combis'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-devtools')
+
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jdk8')
+
+    compile('org.flywaydb:flyway-core')
+    compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+    compile("commons-beanutils:commons-beanutils:${beanutilsVersion}")
+    compile("net.sourceforge.jtds:jtds:${jtdsVersion}")
+    compile('org.hibernate:hibernate-java8')
+    compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${springfoxVersion}")
+    compile("commons-fileupload:commons-fileupload:${fileuploadVersion}")
+
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+    testCompile("com.github.javafaker:javafaker:${javafakerVersion}")
+    testCompile("com.h2database:h2:${h2Version}")
+}
+
+test {
+    systemProperty "spring.profiles.active", "test"
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
