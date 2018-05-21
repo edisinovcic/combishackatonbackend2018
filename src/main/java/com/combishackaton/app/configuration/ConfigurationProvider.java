@@ -18,8 +18,6 @@ import java.util.Map;
 @Component
 public class ConfigurationProvider {
 
-    private Logger logger = LoggerFactory.getLogger(ConfigurationProvider.class);
-
     private ConfigurationService configurationService;
     private static Map<String, Configuration> configurationMap = new HashMap<>();
     private static final DateTimeFormatter ISO_FORMATTER = DateTimeFormatter.ISO_DATE_TIME;
@@ -35,7 +33,7 @@ public class ConfigurationProvider {
         ConfigurationProvider.configurationMap = configurationService.findAll();
 
         if(!ConfigurationProvider.configurationMap.isEmpty()) {
-            logger.info("Loaded {} configuration key/value pairs from database", configurationMap.size());
+            //logger.info("Loaded {} configuration key/value pairs from database", configurationMap.size());
         }
     }
 

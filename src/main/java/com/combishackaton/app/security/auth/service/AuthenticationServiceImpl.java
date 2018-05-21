@@ -25,16 +25,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private UserService userService;
     private JwtTokenFactory jwtTokenFactory;
     private JwtTokenUtils jwtTokenUtils;
-    private LoginAttemptService loginAttemptService;
 
     @Autowired
     public AuthenticationServiceImpl(AuthenticationManager authenticationManager, UserService userService,
-            JwtTokenFactory jwtTokenFactory, JwtTokenUtils jwtTokenUtils, LoginAttemptService loginAttemptService) {
+            JwtTokenFactory jwtTokenFactory, JwtTokenUtils jwtTokenUtils) {
         this.authenticationManager = authenticationManager;
         this.userService = userService;
         this.jwtTokenFactory = jwtTokenFactory;
         this.jwtTokenUtils = jwtTokenUtils;
-        this.loginAttemptService = loginAttemptService;
     }
 
     @Override
@@ -44,11 +42,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                     authenticationRequest.getPassword()));
         } catch(BadCredentialsException e) {
-            loginAttemptService.updateFailAttempt(authenticationRequest.getEmail());
             throw e;
         }
 
-        loginAttemptService.resetFailAttempt(authenticationRequest.getEmail());
         User user = userService.findUserByEmail(authenticationRequest.getEmail());
 
         AuthenticationResponse authenticationResponse = new AuthenticationResponse();

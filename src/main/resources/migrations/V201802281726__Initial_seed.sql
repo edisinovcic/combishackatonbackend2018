@@ -1,3 +1,2 @@
-INSERT INTO users (username, email, phone) VALUES ('edi', 'edi.sinovcic@gmail.com', '0996827754');
-INSERT INTO users (username, email, phone) VALUES ('bernard', 'bernard.radman@gmail.com', '09912345456');
-INSERT INTO users (username, email, phone) VALUES ('ficko', 'tomslav.ficko@gmail.com', '0999999999');
+INSERT INTO users (first_name, last_name, email, password, gender, address, authority_group) VALUES ('edi', 'sinovcic', 'edi.sinovcic@gmail.com', '$2a$04$3dj6LGwGdmLAu91GdoV/dezHtbphnlOkcgKHaftctzVGJzkNm4h4S', 'M', 'Odranska 3, Zagreb', 'CUSTOMER');
+INSERT INTO users (first_name, last_name, email, password, gender, address, authority_group) VALUES ('admin', 'adminko','admin@admin.com', '$2a$04$3dj6LGwGdmLAu91GdoV/dezHtbphnlOkcgKHaftctzVGJzkNm4h4S', 'M', 'Kninski Trg, Zagreb', 'ADMIN');

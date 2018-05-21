@@ -74,7 +74,7 @@ public class UserPrincipal implements JwtUserDetails {
 
     private List<SimpleGrantedAuthority> getAuthorities(String authorityGroup) {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(authorityGroup));
+        authorities.add(new SimpleGrantedAuthority("CUSTOMER"));
         return authorities;
     }
 

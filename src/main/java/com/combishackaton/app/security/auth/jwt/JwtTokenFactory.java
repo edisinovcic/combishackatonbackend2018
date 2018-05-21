@@ -18,7 +18,7 @@ public class JwtTokenFactory {
     public static final String ACCESS_TOKEN_BODY_TAG = "body";
     public static final String TOKEN_TYPE = "token_type";
 
-    @Value("${jwt.secret:}")
+    @Value("${jwt.secret:ioK4m8ELRu}")
     private String secret;
 
     @Value("${jwt.access.expiration-time:6048000}")
