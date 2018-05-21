@@ -1,2 +1,0 @@
-INSERT INTO users (first_name, last_name, email, password, gender, address, authority_group) VALUES ('edi', 'sinovcic', 'edi.sinovcic@gmail.com', '$2a$04$3dj6LGwGdmLAu91GdoV/dezHtbphnlOkcgKHaftctzVGJzkNm4h4S', 'M', 'Odranska 3, Zagreb', 'CUSTOMER');
-INSERT INTO users (first_name, last_name, email, password, gender, address, authority_group) VALUES ('admin', 'adminko','admin@admin.com', '$2a$04$3dj6LGwGdmLAu91GdoV/dezHtbphnlOkcgKHaftctzVGJzkNm4h4S', 'M', 'Kninski Trg, Zagreb', 'ADMIN');
