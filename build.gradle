@@ -24,7 +24,7 @@ apply plugin: 'idea'
 
 
 group 'combis'
-version '1.0'
+version ''
 
 sourceCompatibility = 1.8
 

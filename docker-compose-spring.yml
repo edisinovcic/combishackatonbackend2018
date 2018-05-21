@@ -5,7 +5,8 @@ services:
           context: .
           dockerfile: Dockerfile
         ports:
-          - "8080:80"
-        container_name: combisHackatonApp
+          - "8080:8080"
+        container_name: combis-hackaton-app
         networks:
           - default
+
