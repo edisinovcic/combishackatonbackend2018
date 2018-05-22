@@ -60,3 +60,10 @@ dependencies {
     testCompile("com.h2database:h2:${h2Version}")
 }
 
+test {
+    systemProperty "spring.profiles.active", "test"
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
