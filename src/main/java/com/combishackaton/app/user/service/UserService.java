@@ -23,7 +23,7 @@ public interface UserService {
 
     void deleteAll();
 
-    User findUserById(String id) throws UserDoesntExistException;
+    User findUserById(Integer id) throws UserDoesntExistException;
 
 
 }

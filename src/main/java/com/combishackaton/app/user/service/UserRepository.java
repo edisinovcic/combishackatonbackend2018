@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    User findById(String id);
+    User findById(Integer id);
 
     User findByEmail(String email);
 

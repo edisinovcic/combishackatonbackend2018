@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PersistenceConfig {
 
     @Bean
-    AuditorAware<String> auditorProvider() {
+    AuditorAware<Integer> auditorProvider() {
         return () -> {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if(authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {

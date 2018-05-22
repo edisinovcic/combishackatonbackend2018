@@ -16,7 +16,7 @@ import java.util.List;
 public class UserPrincipal implements JwtUserDetails {
 
     @Getter
-    private String id;
+    private Integer id;
     private String email;
     private String password;
     private String authorityGroup;

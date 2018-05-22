@@ -56,7 +56,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Token refreshToken(String refreshToken) throws InvalidRefreshTokenException, UserDoesntExistException {
         Claims claims = jwtTokenUtils.getClaims(refreshToken);
-        User user = userService.findUserById(claims.getSubject());
+        User user = userService.findUserById(Integer.parseInt(claims.getSubject()));
 
         if(!jwtTokenUtils.validateRefreshToken(refreshToken, user)) {
             throw new InvalidRefreshTokenException("The refresh token you're using is either expired or invalid");

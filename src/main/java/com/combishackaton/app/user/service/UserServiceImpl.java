@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(String id) throws UserDoesntExistException {
+    public User findUserById(Integer id) throws UserDoesntExistException {
         return Optional.ofNullable(userRepository.findById(id))
                        .orElseThrow(() -> new UserDoesntExistException("User doesn't exist!"));
     }

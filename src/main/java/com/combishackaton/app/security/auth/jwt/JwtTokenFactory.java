@@ -36,16 +36,16 @@ public class JwtTokenFactory {
         Claims builder = Jwts.claims();
         builder.put(TOKEN_TYPE, TokenType.ACCESS_TOKEN);
         builder.put(ACCESS_TOKEN_BODY_TAG, userPrincipal);
-        builder.setSubject(userPrincipal.getId());
+        builder.setSubject(Integer.toString(userPrincipal.getId()));
         builder.setExpiration(generateExpirationDate(accessExpiration));
         return build(builder);
     }
 
-    private String generateRefreshToken(String userId) {
+    private String generateRefreshToken(Integer userId) {
         Claims builder = Jwts.claims();
         builder.put(TOKEN_TYPE, TokenType.REFRESH_TOKEN);
         builder.setId(UUID.randomUUID().toString())
-               .setSubject(userId)
+               .setSubject(Integer.toString(userId))
                .setExpiration(generateExpirationDate(refreshExpiration));
         return build(builder);
     }
