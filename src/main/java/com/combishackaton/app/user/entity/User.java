@@ -47,6 +47,7 @@ public class User extends AuditableEntity implements TransferEntity<UserResponse
                            .firstName(getFirstName())
                            .lastName(getLastName())
                            .gender(getGender())
+                           .address(getAddress())
                            .authorityGroup(getAuthorityGroup())
                            .build();
     }

@@ -17,6 +17,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -42,10 +44,17 @@ public class UserController {
         return new RestResponse<UserResponse>(true).setData(user.getTransferObject());
     }
 
-    @GetMapping
+    @GetMapping("/authenticated")
     public RestResponse<UserResponse> fetch() {
         User user = userService.getAuthenticatedUser();
         return new RestResponse<UserResponse>(true).setData(user.getTransferObject());
+    }
+
+    @GetMapping
+    public RestResponse<List<UserResponse>> fetchAll() {
+        List<User> users = userService.findAll();
+        return new RestResponse<List<UserResponse>>(true)
+                .setData(users.stream().map(User::getTransferObject).collect(Collectors.toList()));
     }
 
 

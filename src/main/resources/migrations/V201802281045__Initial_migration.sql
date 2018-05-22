@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS log;
 DROP TABLE IF EXISTS social_connection;
 DROP TABLE IF EXISTS users;
 
+
+
 CREATE TABLE users (
   id VARCHAR(255) DEFAULT gen_random_uuid(),
   first_name VARCHAR(500),

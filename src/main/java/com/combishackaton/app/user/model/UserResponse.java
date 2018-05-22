@@ -15,7 +15,6 @@ public class UserResponse {
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private String gender;
     private String address;
     private String authorityGroup;

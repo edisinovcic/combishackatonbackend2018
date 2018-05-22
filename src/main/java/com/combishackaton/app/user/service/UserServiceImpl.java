@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -81,5 +82,10 @@ public class UserServiceImpl implements UserService {
     public User findUserById(String id) throws UserDoesntExistException {
         return Optional.ofNullable(userRepository.findById(id))
                        .orElseThrow(() -> new UserDoesntExistException("User doesn't exist!"));
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }

@@ -7,6 +7,8 @@ import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.model.UserRegistrationRequest;
 import com.combishackaton.app.user.model.UserUpdateRequest;
 
+import java.util.List;
+
 public interface UserService {
 
     User getAuthenticatedUser();
@@ -24,6 +26,8 @@ public interface UserService {
     void deleteAll();
 
     User findUserById(String id) throws UserDoesntExistException;
+
+    List<User> findAll();
 
 
 }
