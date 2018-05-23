@@ -1,5 +1,6 @@
 package com.combishackaton.app.user.controller;
 
+import com.combishackaton.app.common.exception.UnauthorizedException;
 import com.combishackaton.app.common.exception.ValidationException;
 import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.common.social.oauth.OAuthService;
@@ -49,6 +50,18 @@ public class UserController {
         User user = userService.getAuthenticatedUser();
         return new RestResponse<UserResponse>(true).setData(user.getTransferObject());
     }
+
+
+    @GetMapping("/{id}")
+    public RestResponse<UserResponse> fetchByAdmin(@PathVariable(name = "id") String id) throws UnauthorizedException,
+            UserDoesntExistException {
+        User user = userService.getAuthenticatedUser();
+        if(!user.getAuthorityGroup().contentEquals("ADMIN")) {
+            throw new UnauthorizedException("You don't have priviledges high enough to access this endpoint!");
+        }
+        return new RestResponse<UserResponse>(true).setData(userService.findUserById(id).getTransferObject());
+    }
+
 
     @GetMapping
     public RestResponse<List<UserResponse>> fetchAll() {
