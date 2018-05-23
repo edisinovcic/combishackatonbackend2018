@@ -1,6 +1,5 @@
 package com.combishackaton.app.common.social.oauth;
 
-import com.combishackaton.app.common.exception.EntityNotFoundException;
 import com.combishackaton.app.common.social.connection.entity.SocialConnection;
 import com.combishackaton.app.common.social.connection.entity.SocialType;
 import com.combishackaton.app.common.social.connection.service.SocialConnectionService;

@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @Loggable(action = "User registration")
-    @PostMapping()
+    @PostMapping
     public RestResponse<UserResponse> create(@RequestBody @Valid UserRegistrationRequest userRegistrationRequest,
             BindingResult bindingResult) throws ValidationException, UserAlreadyExistsException {
         if(bindingResult.hasFieldErrors()) {
