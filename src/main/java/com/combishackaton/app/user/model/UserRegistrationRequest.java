@@ -8,11 +8,13 @@ public class UserRegistrationRequest {
 
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String email;
-    private String password;
+    private String yearOfBirth;
     private String gender;
     private String address;
-    private String authorityGroup;
+    private String bloodType;
+    private String password;
 
     public User fillUser() {
         User user = new User();
@@ -21,7 +23,7 @@ public class UserRegistrationRequest {
         user.setEmail(this.getEmail());
         user.setGender(this.getGender());
         user.setAddress(this.getAddress());
-        user.setAuthorityGroup(this.getAuthorityGroup());
+        user.setAuthorityGroup("CUSTOMER");
         return user;
     }
 }

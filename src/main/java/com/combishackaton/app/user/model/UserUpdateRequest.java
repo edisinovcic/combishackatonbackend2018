@@ -10,11 +10,13 @@ public class UserUpdateRequest {
 
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String email;
-    private String password;
+    private String yearOfBirth;
     private String gender;
     private String address;
-    private String authorityGroup;
+    private String bloodType;
+    private String password;
 
     public User toUser(User user){
         user.setFirstName(this.firstName);
@@ -22,7 +24,7 @@ public class UserUpdateRequest {
         user.setEmail(this.email);
         user.setGender(this.gender);
         user.setAddress(this.address);
-        user.setAuthorityGroup(this.authorityGroup);
+        user.setAuthorityGroup("CUSTOMER");
         return user;
     }
 

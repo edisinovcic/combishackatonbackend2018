@@ -14,8 +14,12 @@ public class UserResponse {
     private String id;
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String email;
+    private String yearOfBirth;
     private String gender;
     private String address;
+    private String bloodType;
     private String authorityGroup;
+    private String password;
 }
