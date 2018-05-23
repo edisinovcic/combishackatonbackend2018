@@ -3,11 +3,13 @@ CREATE SCHEMA IF NOT EXISTS codeapp;
 DROP TABLE IF EXISTS configuration;
 DROP TABLE IF EXISTS log;
 DROP TABLE IF EXISTS social_connection;
+DROP TABLE IF EXISTS blood_stocks;
 DROP TABLE IF EXISTS blood_groups;
-DROP TABLE IF EXISTS questions;
 DROP TABLE IF EXISTS answers;
+DROP TABLE IF EXISTS questions;
 DROP TABLE IF EXISTS user_donations;
 DROP TABLE IF EXISTS donation_events;
+DROP TABLE IF EXISTS invites;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (

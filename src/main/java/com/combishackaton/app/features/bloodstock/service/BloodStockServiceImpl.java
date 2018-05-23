@@ -1,5 +1,7 @@
 package com.combishackaton.app.features.bloodstock.service;
 
+import org.springframework.stereotype.Service;
 
-public class BloodStockServiceImpl {
+@Service
+public class BloodStockServiceImpl implements BloodStockService {
 }
