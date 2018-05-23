@@ -1,4 +1,4 @@
-package com.combishackaton.app.features.bloodgroup.model;
+package com.combishackaton.app.features.bloodgroups.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

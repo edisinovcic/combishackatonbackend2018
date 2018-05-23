@@ -1,6 +1,6 @@
-package com.combishackaton.app.features.bloodstock.service;
+package com.combishackaton.app.features.bloodstocks.service;
 
-import com.combishackaton.app.features.bloodstock.entity.BloodStock;
+import com.combishackaton.app.features.bloodstocks.entity.BloodStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

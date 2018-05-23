@@ -1,9 +1,9 @@
-package com.combishackaton.app.features.bloodstock.controller;
+package com.combishackaton.app.features.bloodstocks.controller;
 
 import com.combishackaton.app.common.model.RestResponse;
-import com.combishackaton.app.features.bloodstock.entity.BloodStock;
-import com.combishackaton.app.features.bloodstock.model.BloodStockResponse;
-import com.combishackaton.app.features.bloodstock.service.BloodStockService;
+import com.combishackaton.app.features.bloodstocks.entity.BloodStock;
+import com.combishackaton.app.features.bloodstocks.model.BloodStockResponse;
+import com.combishackaton.app.features.bloodstocks.service.BloodStockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

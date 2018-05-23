@@ -1,6 +1,6 @@
-package com.combishackaton.app.features.bloodgroup.service;
+package com.combishackaton.app.features.bloodgroups.service;
 
-import com.combishackaton.app.features.bloodgroup.entity.BloodGroup;
+import com.combishackaton.app.features.bloodgroups.entity.BloodGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

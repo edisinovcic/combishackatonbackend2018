@@ -20,9 +20,12 @@ public class UserRegistrationRequest {
         User user = new User();
         user.setFirstName(this.getFirstName());
         user.setLastName(this.getLastName());
+        user.setPhoneNumber(this.phoneNumber);
         user.setEmail(this.getEmail());
+        user.setYearOfBirth(this.yearOfBirth);
         user.setGender(this.getGender());
         user.setAddress(this.getAddress());
+        user.setBloodType(getBloodType());
         user.setAuthorityGroup("CUSTOMER");
         return user;
     }

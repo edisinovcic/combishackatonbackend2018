@@ -1,7 +1,7 @@
-package com.combishackaton.app.features.bloodgroup.service;
+package com.combishackaton.app.features.bloodgroups.service;
 
-import com.combishackaton.app.features.bloodgroup.entity.BloodGroup;
-import com.combishackaton.app.features.bloodgroup.exception.BloodGroupNotFoundException;
+import com.combishackaton.app.features.bloodgroups.entity.BloodGroup;
+import com.combishackaton.app.features.bloodgroups.exception.BloodGroupNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

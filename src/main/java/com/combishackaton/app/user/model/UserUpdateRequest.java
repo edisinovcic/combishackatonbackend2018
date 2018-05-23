@@ -18,12 +18,15 @@ public class UserUpdateRequest {
     private String bloodType;
     private String password;
 
-    public User toUser(User user){
+    public User toUser(User user) {
         user.setFirstName(this.firstName);
         user.setLastName(this.lastName);
+        user.setPhoneNumber(this.phoneNumber);
         user.setEmail(this.email);
+        user.setYearOfBirth(this.yearOfBirth);
         user.setGender(this.gender);
         user.setAddress(this.address);
+        user.setBloodType(this.bloodType);
         user.setAuthorityGroup("CUSTOMER");
         return user;
     }

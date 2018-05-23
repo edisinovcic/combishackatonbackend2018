@@ -1,9 +1,8 @@
-package com.combishackaton.app.features.bloodstock.entity;
+package com.combishackaton.app.features.bloodstocks.entity;
 
 import com.combishackaton.app.common.model.AuditableEntity;
-import com.combishackaton.app.common.model.BaseEntity;
 import com.combishackaton.app.common.model.TransferEntity;
-import com.combishackaton.app.features.bloodstock.model.BloodStockResponse;
+import com.combishackaton.app.features.bloodstocks.model.BloodStockResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

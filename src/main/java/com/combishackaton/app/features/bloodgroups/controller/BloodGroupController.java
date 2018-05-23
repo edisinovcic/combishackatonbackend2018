@@ -1,10 +1,10 @@
-package com.combishackaton.app.features.bloodgroup.controller;
+package com.combishackaton.app.features.bloodgroups.controller;
 
 import com.combishackaton.app.common.model.RestResponse;
-import com.combishackaton.app.features.bloodgroup.entity.BloodGroup;
-import com.combishackaton.app.features.bloodgroup.exception.BloodGroupNotFoundException;
-import com.combishackaton.app.features.bloodgroup.model.BloodGroupResponse;
-import com.combishackaton.app.features.bloodgroup.service.BloodGroupService;
+import com.combishackaton.app.features.bloodgroups.entity.BloodGroup;
+import com.combishackaton.app.features.bloodgroups.exception.BloodGroupNotFoundException;
+import com.combishackaton.app.features.bloodgroups.model.BloodGroupResponse;
+import com.combishackaton.app.features.bloodgroups.service.BloodGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

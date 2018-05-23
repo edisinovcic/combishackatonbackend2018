@@ -1,7 +1,7 @@
-package com.combishackaton.app.features.bloodstock.service;
+package com.combishackaton.app.features.bloodstocks.service;
 
 
-import com.combishackaton.app.features.bloodstock.entity.BloodStock;
+import com.combishackaton.app.features.bloodstocks.entity.BloodStock;
 
 import java.time.LocalDateTime;
 import java.util.List;

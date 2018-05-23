@@ -1,8 +1,8 @@
-package com.combishackaton.app.features.bloodgroup.entity;
+package com.combishackaton.app.features.bloodgroups.entity;
 
 import com.combishackaton.app.common.model.AuditableEntity;
 import com.combishackaton.app.common.model.TransferEntity;
-import com.combishackaton.app.features.bloodgroup.model.BloodGroupResponse;
+import com.combishackaton.app.features.bloodgroups.model.BloodGroupResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

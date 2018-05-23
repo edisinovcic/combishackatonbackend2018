@@ -1,4 +1,4 @@
-package com.combishackaton.app.features.bloodstock.model;
+package com.combishackaton.app.features.bloodstocks.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

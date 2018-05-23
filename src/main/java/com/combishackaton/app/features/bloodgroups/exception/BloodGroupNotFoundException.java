@@ -1,4 +1,4 @@
-package com.combishackaton.app.features.bloodgroup.exception;
+package com.combishackaton.app.features.bloodgroups.exception;
 
 import com.combishackaton.app.common.exception.BaseException;
 
