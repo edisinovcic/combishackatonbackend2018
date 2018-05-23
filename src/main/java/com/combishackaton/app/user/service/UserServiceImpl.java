@@ -56,8 +56,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(UserUpdateRequest userUpdateRequest) {
-        User user = userUpdateRequest.toUser(getAuthenticatedUser());
-        user.setPassword(passwordEncoder.encode(userUpdateRequest.getPassword()));
+        User oldUser = getAuthenticatedUser();
+        User user = userUpdateRequest.toUser(oldUser);
+        user.setPassword(passwordEncoder.encode(oldUser.getPassword()));
         return userRepository.save(user);
     }
 
