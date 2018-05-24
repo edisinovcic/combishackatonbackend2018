@@ -1,8 +1,7 @@
 package com.combishackaton.app.features.bloodstocks.entity;
 
-import com.combishackaton.app.common.model.TimeEntity;
+import com.combishackaton.app.common.model.AuditableEntity;
 import com.combishackaton.app.common.model.TransferEntity;
-import com.combishackaton.app.features.bloodstocks.model.BloodStockRequest;
 import com.combishackaton.app.features.bloodstocks.model.BloodStockResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "blood_stocks")
 @Data
-public class BloodStock extends TimeEntity implements TransferEntity<BloodStockResponse> {
+public class BloodStock extends AuditableEntity implements TransferEntity<BloodStockResponse> {
 
     @Column(name = "blood_group")
     private String bloodGroup;
@@ -30,6 +29,4 @@ public class BloodStock extends TimeEntity implements TransferEntity<BloodStockR
         bloodStockResponse.setBloodGroup(getBloodGroup());
         return bloodStockResponse;
     }
-
-
 }

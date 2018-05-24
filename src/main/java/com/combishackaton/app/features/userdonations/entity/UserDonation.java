@@ -1,6 +1,6 @@
 package com.combishackaton.app.features.userdonations.entity;
 
-import com.combishackaton.app.common.model.TimeEntity;
+import com.combishackaton.app.common.model.AuditableEntity;
 import com.combishackaton.app.user.entity.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user_donations")
 @Data
-public class UserDonation extends TimeEntity {
+public class UserDonation extends AuditableEntity {
 
     @JoinColumn(name = "user_id")
     @ManyToOne
@@ -19,4 +19,5 @@ public class UserDonation extends TimeEntity {
 
     @Column(name = "description")
     private String description;
+
 }

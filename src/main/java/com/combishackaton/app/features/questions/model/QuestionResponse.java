@@ -12,9 +12,10 @@ import javax.persistence.Column;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuestionResponse{
+public class QuestionResponse {
 
     @Column(name = "description")
     private String description;
+
 
 }
