@@ -32,6 +32,8 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question save(QuestionResponse questionResponse) {
-        return questionRepository.save(questionResponse.getTransferObject());
+        Question question = new Question();
+        question.setDescription(questionResponse.getDescription());
+        return questionRepository.save(question);
     }
 }
