@@ -5,6 +5,7 @@ import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.common.validation.AuthenticationValidator;
 import com.combishackaton.app.features.answers.entity.Answer;
 import com.combishackaton.app.features.answers.model.AnswerRegistrationRequest;
+import com.combishackaton.app.features.answers.model.AnswerUpdateRequest;
 import com.combishackaton.app.features.answers.service.AnswerService;
 import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.service.UserService;
@@ -67,5 +68,11 @@ public class AnswerController {
     public RestResponse<Answer> create(@RequestBody AnswerRegistrationRequest answerRegistrationRequest) throws
             UserDoesntExistException {
         return new RestResponse<Answer>(true).setData(answerService.create(answerRegistrationRequest));
+    }
+
+    @PostMapping
+    public RestResponse<Answer> update(@RequestBody AnswerUpdateRequest answerUpdateRequest) throws
+            UserDoesntExistException {
+        return new RestResponse<Answer>(true).setData(answerService.update(answerUpdateRequest));
     }
 }
