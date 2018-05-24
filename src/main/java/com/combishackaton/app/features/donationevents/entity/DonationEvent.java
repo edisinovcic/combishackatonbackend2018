@@ -26,4 +26,5 @@ public class DonationEvent extends AuditableEntity {
     @Column(name = "longitude")
     private String longitude;
 
+
 }

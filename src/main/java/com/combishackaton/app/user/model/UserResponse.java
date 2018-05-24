@@ -21,5 +21,5 @@ public class UserResponse {
     private String address;
     private String bloodType;
     private String authorityGroup;
-    private String password;
+
 }
