@@ -1,6 +1,7 @@
 package com.combishackaton.app.common.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -8,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
 @Data
 public class TimeEntity extends BaseEntity {
