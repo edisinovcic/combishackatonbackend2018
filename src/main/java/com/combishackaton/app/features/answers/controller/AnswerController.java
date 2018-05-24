@@ -70,7 +70,7 @@ public class AnswerController {
         return new RestResponse<Answer>(true).setData(answerService.create(answerRegistrationRequest));
     }
 
-    @PostMapping
+    @PutMapping
     public RestResponse<Answer> update(@RequestBody AnswerUpdateRequest answerUpdateRequest) throws
             UserDoesntExistException {
         return new RestResponse<Answer>(true).setData(answerService.update(answerUpdateRequest));
