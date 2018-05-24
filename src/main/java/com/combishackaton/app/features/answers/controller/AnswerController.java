@@ -4,13 +4,12 @@ import com.combishackaton.app.common.exception.InsufficientPriviledgesException;
 import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.common.validation.AuthenticationValidator;
 import com.combishackaton.app.features.answers.entity.Answer;
+import com.combishackaton.app.features.answers.model.AnswerRegistrationRequest;
 import com.combishackaton.app.features.answers.service.AnswerService;
+import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -64,4 +63,9 @@ public class AnswerController {
                 .setData(answerService.findAllByUser(userService.getAuthenticatedUser().getId()));
     }
 
+    @PostMapping
+    public RestResponse<Answer> create(@RequestBody AnswerRegistrationRequest answerRegistrationRequest) throws
+            UserDoesntExistException {
+        return new RestResponse<Answer>(true).setData(answerService.create(answerRegistrationRequest));
+    }
 }

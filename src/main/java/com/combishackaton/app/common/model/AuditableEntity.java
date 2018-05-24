@@ -25,7 +25,6 @@ public abstract class AuditableEntity extends BaseEntity {
     @CreatedDate
     private LocalDateTime createdAt;
 
-    @JsonIgnore
     @Column(name = "modified_at")
     @LastModifiedDate
     private LocalDateTime modifiedAt;

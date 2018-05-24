@@ -2,7 +2,10 @@ package com.combishackaton.app.features.invites.controller;
 
 import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.features.invites.entity.Invite;
+import com.combishackaton.app.features.invites.model.InviteRegisterRequest;
+import com.combishackaton.app.features.invites.model.InviteUpdateRequest;
 import com.combishackaton.app.features.invites.service.InviteService;
+import com.combishackaton.app.user.exception.UserDoesntExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +32,16 @@ public class InviteController {
         return new RestResponse<Invite>(true).setData(inviteService.findOne(id));
     }
 
+    @PostMapping
+    public RestResponse<Invite> create(@RequestBody InviteRegisterRequest inviteRegisterRequest) throws
+            UserDoesntExistException {
+        return new RestResponse<Invite>(true).setData(inviteService.create(inviteRegisterRequest));
+    }
 
-    //TODO: add create and update
+    @PutMapping("/{id}")
+    public RestResponse<Invite> update(@PathVariable(value = "id") String id, @RequestBody InviteUpdateRequest
+            inviteUpdateRequest) throws UserDoesntExistException {
+        return new RestResponse<Invite>(true).setData(inviteService.update(inviteUpdateRequest, id));
+    }
 
 }

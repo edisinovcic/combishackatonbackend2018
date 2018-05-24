@@ -40,6 +40,13 @@ public class BloodStockController {
     }
 
     //TODO: Insert date constraint
+    @GetMapping("/{id}")
+    public RestResponse<BloodStockResponse> fetchAll(@PathVariable(value = "id") String id) throws
+            InsufficientPriviledgesException {
+        authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
+        return new RestResponse<BloodStockResponse>(true).setData(bloodStockService.findById(id).getTransferObject());
+    }
+
     @GetMapping("/blood-group/{bloodGroupName}")
     public RestResponse<List<BloodStockResponse>> fetchAllByBloodGroup(
             @PathVariable(value = "bloodGroupName") String bloodGroupName) throws InsufficientPriviledgesException {
@@ -47,13 +54,6 @@ public class BloodStockController {
         return new RestResponse<List<BloodStockResponse>>(true).setData(
                 bloodStockService.findAllByBloodGroup(bloodGroupName).stream().map(BloodStock::getTransferObject)
                                  .collect(Collectors.toList()));
-    }
-
-    @GetMapping("/{id}")
-    public RestResponse<BloodStockResponse> fetchAll(@PathVariable(value = "id") String id) throws
-            InsufficientPriviledgesException {
-        authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
-        return new RestResponse<BloodStockResponse>(true).setData(bloodStockService.findById(id).getTransferObject());
     }
 
     //TODO: priority!

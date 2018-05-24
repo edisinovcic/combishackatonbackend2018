@@ -32,7 +32,7 @@ public class UserDonationController {
         return new RestResponse<UserDonation>(true).setData(userDonationService.findOne(id));
     }
 
-    @GetMapping("/user/{id})")
+    @GetMapping("/user/{id}")
     public RestResponse<List<UserDonation>> fetchAll(@PathVariable(name = "id") String id) {
         return new RestResponse<List<UserDonation>>(true).setData(userDonationService.findAllByUser(id));
     }
