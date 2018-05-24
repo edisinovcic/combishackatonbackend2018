@@ -1,6 +1,7 @@
 package com.combishackaton.app.features.bloodgroups.entity;
 
 import com.combishackaton.app.common.model.AuditableEntity;
+import com.combishackaton.app.common.model.TimeEntity;
 import com.combishackaton.app.common.model.TransferEntity;
 import com.combishackaton.app.features.bloodgroups.model.BloodGroupResponse;
 import lombok.Data;
@@ -16,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "blood_groups")
 @Data
-public class BloodGroup extends AuditableEntity implements TransferEntity<BloodGroupResponse> {
+public class BloodGroup extends TimeEntity implements TransferEntity<BloodGroupResponse> {
 
     @Column(name = "name")
     private String name;

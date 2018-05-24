@@ -1,6 +1,7 @@
 package com.combishackaton.app.features.invites.entity;
 
 import com.combishackaton.app.common.model.AuditableEntity;
+import com.combishackaton.app.common.model.TimeEntity;
 import com.combishackaton.app.features.donationevents.entity.DonationEvent;
 import com.combishackaton.app.user.entity.User;
 import lombok.Data;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "invites")
 @Data
-public class Invite extends AuditableEntity {
+public class Invite extends TimeEntity {
 
     @Column(name = "description")
     private String description;

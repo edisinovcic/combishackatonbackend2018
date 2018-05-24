@@ -1,6 +1,7 @@
 package com.combishackaton.app.features.donationevents.entity;
 
 import com.combishackaton.app.common.model.AuditableEntity;
+import com.combishackaton.app.common.model.TimeEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "donation_events")
 @Data
-public class DonationEvent extends AuditableEntity {
+public class DonationEvent extends TimeEntity {
 
     @Column(name = "description")
     private String description;

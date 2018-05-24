@@ -1,6 +1,6 @@
 package com.combishackaton.app.features.answers.entity;
 
-import com.combishackaton.app.common.model.AuditableEntity;
+import com.combishackaton.app.common.model.TimeEntity;
 import com.combishackaton.app.features.questions.entity.Question;
 import com.combishackaton.app.user.entity.User;
 import lombok.Data;
@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "answers")
 @Data
-public class Answer extends AuditableEntity {
+public class Answer extends TimeEntity {
 
     @Column(name = "answer")
     private String answer;
