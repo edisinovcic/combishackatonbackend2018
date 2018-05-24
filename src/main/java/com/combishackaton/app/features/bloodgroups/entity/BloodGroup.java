@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.combishackaton.app.common.Constants.splitAndReturnList;
+
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "blood_groups")
@@ -47,11 +49,7 @@ public class BloodGroup extends BaseEntity implements TransferEntity<BloodGroupR
         return bloodGroupResponse;
     }
 
-    private List<String> splitAndReturnList(String string) {
-        return Arrays.asList(string.split("\\,"));
-    }
 
-    private String convertListToString(List<String> stringList) {
-        return String.join(",", stringList);
-    }
+
+
 }

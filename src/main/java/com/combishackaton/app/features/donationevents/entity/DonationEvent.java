@@ -1,16 +1,16 @@
 package com.combishackaton.app.features.donationevents.entity;
 
 import com.combishackaton.app.common.model.BaseEntity;
+import com.combishackaton.app.features.userdonations.entity.UserDonation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -37,6 +37,9 @@ public class DonationEvent extends BaseEntity {
     @Column(name = "modified_at")
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "user_donations")
+    private List<UserDonation> userDonations;
 
 
 }
