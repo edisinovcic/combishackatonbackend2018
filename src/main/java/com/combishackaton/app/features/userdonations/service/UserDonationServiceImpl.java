@@ -1,5 +1,7 @@
 package com.combishackaton.app.features.userdonations.service;
 
+import com.combishackaton.app.features.bloodstocks.model.BloodStockRequest;
+import com.combishackaton.app.features.bloodstocks.service.BloodStockService;
 import com.combishackaton.app.features.userdonations.entity.UserDonation;
 import com.combishackaton.app.features.userdonations.model.UserDonationRequest;
 import com.combishackaton.app.user.exception.UserDoesntExistException;
@@ -16,11 +18,14 @@ public class UserDonationServiceImpl implements UserDonationService {
 
     private UserDonationRepository userDonationRepository;
     private UserService userService;
+    private BloodStockService bloodStockService;
 
     @Autowired
-    public UserDonationServiceImpl(UserDonationRepository userDonationRepository, UserService userService) {
+    public UserDonationServiceImpl(UserDonationRepository userDonationRepository, UserService userService,
+            BloodStockService bloodStockService) {
         this.userDonationRepository = userDonationRepository;
         this.userService = userService;
+        this.bloodStockService = bloodStockService;
     }
 
     @Override
@@ -44,8 +49,12 @@ public class UserDonationServiceImpl implements UserDonationService {
         UserDonation userDonation = new UserDonation();
         userDonation.setDescription(userDonationRequest.getDescription());
         userDonation.setUser(userService.findUserByEmail(userDonationRequest.getEmail()));
+
+        BloodStockRequest bloodStockRequest = new BloodStockRequest();
+        bloodStockRequest.setBloodGroup(userDonation.getUser().getBloodType());
+        bloodStockRequest.setAmount(1);
+        bloodStockService.create(bloodStockRequest);
+
         return userDonationRepository.save(userDonation);
     }
-
-
 }

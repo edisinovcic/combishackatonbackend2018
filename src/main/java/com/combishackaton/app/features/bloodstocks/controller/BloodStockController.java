@@ -41,7 +41,6 @@ public class BloodStockController {
                 bloodStockService.findAll());
     }
 
-    //TODO: Insert date constraint
     @GetMapping("/{id}")
     public RestResponse<BloodStock> fetchAll(@PathVariable(value = "id") String id) throws
             InsufficientPriviledgesException {
@@ -57,7 +56,6 @@ public class BloodStockController {
                 bloodStockService.findAllByBloodGroup(bloodGroupName));
     }
 
-    //TODO: priority!
     @GetMapping("/between")
     public RestResponse<List<BloodStock>> fetchAllBetween(String s, String e) throws InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
