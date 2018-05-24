@@ -5,6 +5,7 @@ import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.common.validation.AuthenticationValidator;
 import com.combishackaton.app.features.answers.entity.Answer;
 import com.combishackaton.app.features.answers.model.AnswerRegistrationRequest;
+import com.combishackaton.app.features.answers.model.AnswerUpdateRequest;
 import com.combishackaton.app.features.answers.service.AnswerService;
 import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.service.UserService;
@@ -57,7 +58,7 @@ public class AnswerController {
         return new RestResponse<List<Answer>>(true).setData(answerService.findAllByQuestion(id));
     }
 
-    @GetMapping("/authenticated/{id}")
+    @GetMapping("/authenticated")
     public RestResponse<List<Answer>> fetchByAuthenticatedUser() {
         return new RestResponse<List<Answer>>(true)
                 .setData(answerService.findAllByUser(userService.getAuthenticatedUser().getId()));
@@ -67,5 +68,11 @@ public class AnswerController {
     public RestResponse<Answer> create(@RequestBody AnswerRegistrationRequest answerRegistrationRequest) throws
             UserDoesntExistException {
         return new RestResponse<Answer>(true).setData(answerService.create(answerRegistrationRequest));
+    }
+
+    @PostMapping
+    public RestResponse<Answer> update(@RequestBody AnswerUpdateRequest answerUpdateRequest) throws
+            UserDoesntExistException {
+        return new RestResponse<Answer>(true).setData(answerService.update(answerUpdateRequest));
     }
 }

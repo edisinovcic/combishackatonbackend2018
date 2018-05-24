@@ -2,6 +2,7 @@ package com.combishackaton.app.features.answers.service;
 
 import com.combishackaton.app.features.answers.entity.Answer;
 import com.combishackaton.app.features.answers.model.AnswerRegistrationRequest;
+import com.combishackaton.app.features.answers.model.AnswerUpdateRequest;
 import com.combishackaton.app.features.questions.service.QuestionService;
 import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.service.UserService;
@@ -54,6 +55,15 @@ public class AnswerServiceImpl implements AnswerService {
         answer.setAnswer(answerRegistrationRequest.getAnswer());
         answer.setQuestion(questionService.findOne(answerRegistrationRequest.getQuestionId()));
         answer.setUser(userService.findUserById(answerRegistrationRequest.getUserId()));
+        return answerRepository.save(answer);
+    }
+
+    @Override
+    public Answer update(AnswerUpdateRequest answerUpdateRequest) throws UserDoesntExistException {
+        Answer answer = answerRepository.findOne(answerUpdateRequest.getId());
+        answer.setUser(userService.findUserById(answerUpdateRequest.getUserId()));
+        answer.setQuestion(questionService.findOne(answerUpdateRequest.getQuestionId()));
+        answer.setAnswer(answerUpdateRequest.getAnswer());
         return answerRepository.save(answer);
     }
 

@@ -59,7 +59,8 @@ dependencies {
     testCompile('org.springframework.security:spring-security-test')
     testCompile("com.github.javafaker:javafaker:${javafakerVersion}")
     testCompile("com.h2database:h2:${h2Version}")
-}
+
+    compile 'org.springframework.boot:spring-boot-starter-mail:1.4.3.RELEASE'}
 
 test {
     systemProperty "spring.profiles.active", "test"

@@ -7,6 +7,7 @@ import com.combishackaton.app.features.donationevents.entity.DonationEvent;
 import com.combishackaton.app.features.donationevents.model.DonationEventInviteTriggerResponse;
 import com.combishackaton.app.features.donationevents.model.DonationEventRequest;
 import com.combishackaton.app.features.donationevents.service.DonationEventsService;
+import com.combishackaton.app.user.exception.UserDoesntExistException;
 import com.combishackaton.app.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +55,7 @@ public class DonationEventController {
 
     @PostMapping
     public RestResponse<DonationEvent> create(@RequestBody DonationEventRequest donationEventRequest) throws
-            InsufficientPriviledgesException {
+            InsufficientPriviledgesException, UserDoesntExistException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
         return new RestResponse<DonationEvent>(true).setData(donationEventsService.create(donationEventRequest));
     }
