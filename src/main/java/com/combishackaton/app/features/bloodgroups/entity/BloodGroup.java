@@ -1,6 +1,5 @@
 package com.combishackaton.app.features.bloodgroups.entity;
 
-import com.combishackaton.app.common.model.AuditableEntity;
 import com.combishackaton.app.common.model.TimeEntity;
 import com.combishackaton.app.common.model.TransferEntity;
 import com.combishackaton.app.features.bloodgroups.model.BloodGroupResponse;
