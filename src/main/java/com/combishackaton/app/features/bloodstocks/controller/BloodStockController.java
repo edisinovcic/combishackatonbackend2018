@@ -39,7 +39,7 @@ public class BloodStockController {
                 bloodStockService.findAll().stream().map(BloodStock::getTransferObject).collect(Collectors.toList()));
     }
 
-
+    //TODO: Insert date constraint
     @GetMapping("/blood-group/{bloodGroupName}")
     public RestResponse<List<BloodStockResponse>> fetchAllByBloodGroup(
             @PathVariable(value = "bloodGroupName") String bloodGroupName) throws InsufficientPriviledgesException {
@@ -56,6 +56,7 @@ public class BloodStockController {
         return new RestResponse<BloodStockResponse>(true).setData(bloodStockService.findById(id).getTransferObject());
     }
 
+    //TODO: priority!
     @GetMapping("/between")
     public RestResponse<List<BloodStockResponse>> fetchAllBetween(LocalDateTime start, LocalDateTime end) throws
             InsufficientPriviledgesException {

@@ -2,12 +2,11 @@ package com.combishackaton.app.features.userdonations.controller;
 
 import com.combishackaton.app.common.model.RestResponse;
 import com.combishackaton.app.features.userdonations.entity.UserDonation;
+import com.combishackaton.app.features.userdonations.model.UserDonationRequest;
 import com.combishackaton.app.features.userdonations.service.UserDonationService;
+import com.combishackaton.app.user.exception.UserDoesntExistException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +35,12 @@ public class UserDonationController {
     @GetMapping("/user/{id})")
     public RestResponse<List<UserDonation>> fetchAll(@PathVariable(name = "id") String id) {
         return new RestResponse<List<UserDonation>>(true).setData(userDonationService.findAllByUser(id));
+    }
+
+    @PostMapping
+    public RestResponse<UserDonation> create(@RequestBody UserDonationRequest userDonationRequest) throws
+            UserDoesntExistException {
+        return new RestResponse<UserDonation>(true).setData(userDonationService.create(userDonationRequest));
     }
 
 

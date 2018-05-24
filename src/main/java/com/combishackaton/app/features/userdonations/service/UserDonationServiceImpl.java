@@ -1,6 +1,9 @@
 package com.combishackaton.app.features.userdonations.service;
 
 import com.combishackaton.app.features.userdonations.entity.UserDonation;
+import com.combishackaton.app.features.userdonations.model.UserDonationRequest;
+import com.combishackaton.app.user.exception.UserDoesntExistException;
+import com.combishackaton.app.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +15,12 @@ import java.util.Optional;
 public class UserDonationServiceImpl implements UserDonationService {
 
     private UserDonationRepository userDonationRepository;
+    private UserService userService;
 
     @Autowired
-    public UserDonationServiceImpl(UserDonationRepository userDonationRepository) {
+    public UserDonationServiceImpl(UserDonationRepository userDonationRepository, UserService userService) {
         this.userDonationRepository = userDonationRepository;
+        this.userService = userService;
     }
 
     @Override
@@ -31,6 +36,16 @@ public class UserDonationServiceImpl implements UserDonationService {
 
     @Override
     public List<UserDonation> findAllByUser(String id) {
-        return userDonationRepository.findAllByUser(id);
+        return userDonationRepository.findAllByUserId(id);
     }
+
+    @Override
+    public UserDonation create(UserDonationRequest userDonationRequest) throws UserDoesntExistException {
+        UserDonation userDonation = new UserDonation();
+        userDonation.setDescription(userDonationRequest.getDescription());
+        userDonation.setUser(userService.findUserByEmail(userDonationRequest.getEmail()));
+        return userDonationRepository.save(userDonation);
+    }
+
+
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface UserDonationRepository extends JpaRepository<UserDonation, String> {
 
-    List<UserDonation> findAllByUser(String id);
+    List<UserDonation> findAllByUserId(String id);
 
 
 }

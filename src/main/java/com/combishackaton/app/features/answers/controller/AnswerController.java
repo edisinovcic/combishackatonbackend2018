@@ -63,4 +63,5 @@ public class AnswerController {
         return new RestResponse<List<Answer>>(true)
                 .setData(answerService.findAllByUser(userService.getAuthenticatedUser().getId()));
     }
+
 }

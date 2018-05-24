@@ -53,7 +53,7 @@ public class DonationEventController {
     }
 
     @PostMapping
-    public RestResponse<DonationEvent> triggerEvent(@RequestBody DonationEventRequest donationEventRequest) throws
+    public RestResponse<DonationEvent> create(@RequestBody DonationEventRequest donationEventRequest) throws
             InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
         return new RestResponse<DonationEvent>(true).setData(donationEventsService.create(donationEventRequest));
