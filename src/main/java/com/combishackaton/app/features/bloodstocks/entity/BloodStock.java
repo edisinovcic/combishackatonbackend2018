@@ -1,8 +1,8 @@
 package com.combishackaton.app.features.bloodstocks.entity;
 
-import com.combishackaton.app.common.model.AuditableEntity;
 import com.combishackaton.app.common.model.TimeEntity;
 import com.combishackaton.app.common.model.TransferEntity;
+import com.combishackaton.app.features.bloodstocks.model.BloodStockRequest;
 import com.combishackaton.app.features.bloodstocks.model.BloodStockResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,4 +30,6 @@ public class BloodStock extends TimeEntity implements TransferEntity<BloodStockR
         bloodStockResponse.setBloodGroup(getBloodGroup());
         return bloodStockResponse;
     }
+
+
 }
