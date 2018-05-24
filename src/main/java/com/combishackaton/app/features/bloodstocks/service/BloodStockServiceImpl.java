@@ -9,6 +9,7 @@ import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BloodStockServiceImpl implements BloodStockService {
@@ -22,8 +23,10 @@ public class BloodStockServiceImpl implements BloodStockService {
 
     @Override
     public List<BloodStock> findAllBetweenTimestamp(LocalDateTime start, LocalDateTime end) {
-        return bloodStockRepository.findAllByCreatedAtAfterAndCreatedAtBefore(start, end);
-    }
+        List<BloodStock> bloodStocks = bloodStockRepository.findAll();
+        return bloodStocks.stream().filter(bloodStock -> bloodStock.getModifiedAt().isAfter(start) && bloodStock
+                .getModifiedAt().isBefore(end)).collect(Collectors.toList());
+        }
 
     @Override
     public List<BloodStock> findAll() {

@@ -12,6 +12,6 @@ public interface BloodStockRepository extends JpaRepository<BloodStock, String> 
 
     List<BloodStock> findAllByBloodGroup(String bloodGroup);
 
-    List<BloodStock> findAllByCreatedAtAfterAndCreatedAtBefore(LocalDateTime start, LocalDateTime end);
+    List<BloodStock> findAll();
 
 }

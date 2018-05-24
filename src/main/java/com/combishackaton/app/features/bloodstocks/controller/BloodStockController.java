@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 @RequestMapping("/blood-stock")
 public class BloodStockController {
 
@@ -33,37 +35,37 @@ public class BloodStockController {
     }
 
     @GetMapping("/all")
-    public RestResponse<List<BloodStockResponse>> fetchAll() throws InsufficientPriviledgesException {
+    public RestResponse<List<BloodStock>> fetchAll() throws InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
-        return new RestResponse<List<BloodStockResponse>>(true).setData(
-                bloodStockService.findAll().stream().map(BloodStock::getTransferObject).collect(Collectors.toList()));
+        return new RestResponse<List<BloodStock>>(true).setData(
+                bloodStockService.findAll());
     }
 
     //TODO: Insert date constraint
     @GetMapping("/{id}")
-    public RestResponse<BloodStockResponse> fetchAll(@PathVariable(value = "id") String id) throws
+    public RestResponse<BloodStock> fetchAll(@PathVariable(value = "id") String id) throws
             InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
-        return new RestResponse<BloodStockResponse>(true).setData(bloodStockService.findById(id).getTransferObject());
+        return new RestResponse<BloodStock>(true).setData(bloodStockService.findById(id));
     }
 
     @GetMapping("/blood-group/{bloodGroupName}")
-    public RestResponse<List<BloodStockResponse>> fetchAllByBloodGroup(
+    public RestResponse<List<BloodStock>> fetchAllByBloodGroup(
             @PathVariable(value = "bloodGroupName") String bloodGroupName) throws InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
-        return new RestResponse<List<BloodStockResponse>>(true).setData(
-                bloodStockService.findAllByBloodGroup(bloodGroupName).stream().map(BloodStock::getTransferObject)
-                                 .collect(Collectors.toList()));
+        return new RestResponse<List<BloodStock>>(true).setData(
+                bloodStockService.findAllByBloodGroup(bloodGroupName));
     }
 
     //TODO: priority!
     @GetMapping("/between")
-    public RestResponse<List<BloodStockResponse>> fetchAllBetween(LocalDateTime start, LocalDateTime end) throws
-            InsufficientPriviledgesException {
+    public RestResponse<List<BloodStock>> fetchAllBetween(String s, String e) throws InsufficientPriviledgesException {
         authenticationValidator.checkAuthenticatedUserIsAdmin(userService.getAuthenticatedUser());
-        return new RestResponse<List<BloodStockResponse>>(true).setData(
-                bloodStockService.findAllBetweenTimestamp(start, end).stream().map(BloodStock::getTransferObject)
-                                 .collect(Collectors.toList()));
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDateTime start = LocalDateTime
+                .of(LocalDate.parse(s, dateTimeFormatter), LocalDateTime.now().toLocalTime());
+        LocalDateTime end = LocalDateTime.of(LocalDate.parse(e, dateTimeFormatter), LocalDateTime.now().toLocalTime());
+        return new RestResponse<List<BloodStock>>(true).setData(bloodStockService.findAllBetweenTimestamp(start, end));
     }
 
     @PostMapping
