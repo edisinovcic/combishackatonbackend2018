@@ -13,6 +13,10 @@ public interface InviteService {
 
     Invite findOne(String id);
 
+    List<Invite> findByUser(String id);
+
+    List<Invite> findByEvent(String id);
+
     Invite create(InviteRegisterRequest inviteRegisterRequest) throws UserDoesntExistException;
 
     Invite update(InviteUpdateRequest inviteUpdateRequest, String id) throws UserDoesntExistException;

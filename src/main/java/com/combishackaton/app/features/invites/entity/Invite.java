@@ -28,7 +28,7 @@ public class Invite extends AuditableEntity {
     private String answerText;
 
     @JoinColumn(name = "donation_event_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private DonationEvent donationEvent;
 
 }

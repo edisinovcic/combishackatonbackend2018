@@ -36,6 +36,16 @@ public class InviteServiceImpl implements InviteService {
     }
 
     @Override
+    public List<Invite> findByUser(String id) {
+        return inviteRepository.findAllByUser_Id(id);
+    }
+
+    @Override
+    public List<Invite> findByEvent(String id) {
+        return inviteRepository.findAllByDonationEvent_Id(id);
+    }
+
+    @Override
     public Invite create(InviteRegisterRequest inviteRegisterRequest) throws UserDoesntExistException {
         Invite invite = new Invite();
         invite.setDescription(inviteRegisterRequest.getDescription());

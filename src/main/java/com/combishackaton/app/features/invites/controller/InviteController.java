@@ -32,6 +32,16 @@ public class InviteController {
         return new RestResponse<Invite>(true).setData(inviteService.findOne(id));
     }
 
+    @GetMapping("/user/{id}")
+    public RestResponse<List<Invite>> fetchInvitesForUser(@PathVariable(name = "id") String id) {
+        return new RestResponse<List<Invite>>(true).setData(inviteService.findByUser(id));
+    }
+
+    @GetMapping("/event/{id}")
+    public RestResponse<List<Invite>> fetchInvitesForEvent(@PathVariable(name = "id") String id) {
+        return new RestResponse<List<Invite>>(true).setData(inviteService.findByEvent(id));
+    }
+
     @PostMapping
     public RestResponse<Invite> create(@RequestBody InviteRegisterRequest inviteRegisterRequest) throws
             UserDoesntExistException {
