@@ -62,7 +62,6 @@ dependencies {
 
     compile 'org.springframework.boot:spring-boot-starter-mail:1.4.3.RELEASE'}
 
-
 test {
     systemProperty "spring.profiles.active", "test"
     testLogging {

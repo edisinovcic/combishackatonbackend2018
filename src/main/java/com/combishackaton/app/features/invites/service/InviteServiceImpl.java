@@ -40,7 +40,7 @@ public class InviteServiceImpl implements InviteService {
         Invite invite = new Invite();
         invite.setDescription(inviteRegisterRequest.getDescription());
         invite.setUser(userService.findUserById(inviteRegisterRequest.getUserId()));
-        return invite;
+        return inviteRepository.save(invite);
     }
 
     @Override
