@@ -57,7 +57,7 @@ public class AnswerController {
         return new RestResponse<List<Answer>>(true).setData(answerService.findAllByQuestion(id));
     }
 
-    @GetMapping("/authenticated/{id}")
+    @GetMapping("/authenticated")
     public RestResponse<List<Answer>> fetchByAuthenticatedUser() {
         return new RestResponse<List<Answer>>(true)
                 .setData(answerService.findAllByUser(userService.getAuthenticatedUser().getId()));
